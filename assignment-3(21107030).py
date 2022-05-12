@@ -32,22 +32,27 @@ else:
 from math import pi
 from math import sin
 from math import cos
+
 # Equation 1
 print('(3 + 4) * 5')
 print('Result:', (3 + 4) * 5)
+
 # Equation 2
 print('n*(n-1)/2')
 n = int(input('Enter the value of n:'))
 print('Result:', n*(n-1)/2)
+
 # Equation 3
 print('4 * pi * r**2')
 r = float(input('Enter the value of radius:'))
 print('Result:', 4 * pi * r**2)
+
 # Equation 4
 print('r * cos(a)**2 + r * sin(b)**2) ** 0.5')
 a = float(input('Enter the angle of sin:'))
 b = float(input('Enter the angle of cos'))
 print('Result:', (r * cos(a)**2 + r * sin(b)**2) ** 0.5)
+
 # Equation 5
 print('(y2 - y1) / (x2 - x1)')
 y2 = float(input('Enter the value of y2:'))
