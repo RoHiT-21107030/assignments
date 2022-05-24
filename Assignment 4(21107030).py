@@ -44,10 +44,8 @@ while(n>0):
     num1 = random.choice(a)
     num2 = random.choice(a)
     print(num1, "x", num2)
-    # correct = num1 * num2
     answer = int(input("Enter the correct answer:\n"))
     if answer is num1*num2:
-        # answer = input("Enter the correct answer:\n")
         print("Correct")
     elif answer is not num1*num2:
         print("Wrong!, the correct answer is ", num1*num2)
