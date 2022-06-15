@@ -18,7 +18,7 @@ num_input = int(input("Enter a number for checking multiples:"))
 for number in range(Lower_limit, Upper_limit):
     if number % num_input == 0:
         # printing the number if it is divisible
-        print(limit)
+        print(number)
     else:
         continue
 
