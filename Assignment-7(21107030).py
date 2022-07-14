@@ -2,108 +2,112 @@
 # import all functions/classes from the tkinter
 from tkinter import *
 
-
 # Function for finding GST rate
-def findGst():
-    # take a value from the respective entry boxes
-    # get method returns current text as string
-    org_cost = int(org_priceField.get())
+def findGst() :
 
-    N_price = int(net_priceField.get())
+	# take a value from the respective entry boxes
+	# get method returns current text as string
+	org_cost= int(org_priceField.get())
+	
+	N_price = int(net_priceField.get())
 
-    # calculate GST rate
-    gst_rate = ((N_price - org_cost) * 100) / org_cost;
+	# calculate GST rate
+	gst_rate = ((N_price - org_cost) * 100) / org_cost;
 
-    # insert method inserting the
-    # value in the text entry box.
-    gst_rateField.insert(10, str(gst_rate) + " % ")
-
-
+	# insert method inserting the
+	# value in the text entry box.
+	gst_rateField.insert(10, str(gst_rate) + " % ")
+	
+	
 # Function for clearing the
 # contents of all text entry boxes
 def clearAll():
-    # deleting the content from the entry box
-    org_priceField.delete(0, END)
-
-    net_priceField.delete(0, END)
-
-    gst_rateField.delete(0, END)
-
+	
+	
+	# deleting the content from the entry box
+	org_priceField.delete(0, END)
+	
+	net_priceField.delete(0, END)
+	
+	gst_rateField.delete(0, END)
+	
 
 # Driver Code
-if _name_ == "_main_":
-    # Create a GUI window
-    gui = Tk()
+if __name__ == "__main__" :
 
-    # Set the background colour of GUI window
-    gui.configure(background="light green")
+	# Create a GUI window
+	gui = Tk()
+	
+	# Set the background colour of GUI window
+	gui.configure(background = "light green")
+	
+	# set the name of tkinter GUI window
+	gui.title("GST Rate Finder")
+	
+	# Set the configuration of GUI window
+	gui.geometry("300x300")
 
-    # set the name of tkinter GUI window
-    gui.title("GST Rate Finder")
+	# Create a Original Price: label
+	org_price = Label(gui, text = "Original Price",
+					bg = "blue")
+	
+	# Create a Net Price : label
+	net_price = Label(gui, text = "Net Price",
+					bg = "blue")
 
-    # Set the configuration of GUI window
-    gui.geometry("300x300")
+	# Create a Find Button and attached to
+	# findGst function
+	find = Button(gui, text = "Find", fg = "Black",
+				bg = "Red",
+				command = findGst)
+	
+	# Create a Gst Rate : label
+	gst_rate = Label(gui, text = "Gst Rate", bg = "blue")
 
-    # Create a Original Price: label
-    org_price = Label(gui, text="Original Price",
-                      bg="blue")
+	# Create a Clear Button and attached to
+	# clearAll function
+	clear = Button(gui, text = "Clear", fg = "Black",
+				bg = "Red",
+				command = clearAll)
 
-    # Create a Net Price : label
-    net_price = Label(gui, text="Net Price",
-                      bg="blue")
+	# grid method is used for placing
+	# the widgets at respective positions
+	# in table like structure .
 
-    # Create a Find Button and attached to
-    # findGst function
-    find = Button(gui, text="Find", fg="Black",
-                  bg="Red",
-                  command=findGst)
+	# padx attributed provide x-axis margin
+	# from the root window to the widget.
 
-    # Create a Gst Rate : label
-    gst_rate = Label(gui, text="Gst Rate", bg="blue")
+	# pady attributed provide y-axis
+	# margin from the widget.
+	org_price.grid(row = 1, column = 1,padx = 10,pady = 10)
+				
+	net_price.grid(row = 2, column = 1, padx = 10, pady = 10)
+	
+	find.grid(row = 3, column = 2,padx = 10,pady = 10)
+	
+	gst_rate.grid(row = 4, column = 1,padx = 10, pady = 10)
+	
+	clear.grid(row = 5, column = 2, padx = 10, pady = 10)
 
-    # Create a Clear Button and attached to
-    # clearAll function
-    clear = Button(gui, text="Clear", fg="Black",
-                   bg="Red",
-                   command=clearAll)
+	# Create a text entry box for filling or typing the information.
+	org_priceField = Entry(gui)
+	
+	net_priceField = Entry(gui)
+	
+	gst_rateField = Entry(gui)
 
-    # grid method is used for placing
-    # the widgets at respective positions
-    # in table like structure .
+	# grid method is used for placing
+	# the widgets at respective positions
+	# in table like structure .
+	org_priceField.grid(row = 1, column = 2 ,padx = 10,pady = 10)
+	
+	net_priceField.grid(row = 2, column = 2, padx = 10,pady = 10)
+	
+	gst_rateField.grid(row = 4, column = 2, padx = 10,pady = 10)
+	
+	# Start the GUI
+	gui.mainloop()
 
-    # padx attributed provide x-axis margin
-    # from the root window to the widget.
-
-    # pady attributed provide y-axis
-    # margin from the widget.
-    org_price.grid(row=1, column=1, padx=10, pady=10)
-
-    net_price.grid(row=2, column=1, padx=10, pady=10)
-
-    find.grid(row=3, column=2, padx=10, pady=10)
-
-    gst_rate.grid(row=4, column=1, padx=10, pady=10)
-
-    clear.grid(row=5, column=2, padx=10, pady=10)
-
-    # Create a text entry box for filling or typing the information.
-    org_priceField = Entry(gui)
-
-    net_priceField = Entry(gui)
-
-    gst_rateField = Entry(gui)
-
-    # grid method is used for placing
-    # the widgets at respective positions
-    # in table like structure .
-    org_priceField.grid(row=1, column=2, padx=10, pady=10)
-
-    net_priceField.grid(row=2, column=2, padx=10, pady=10)
-
-    gst_rateField.grid(row=4, column=2, padx=10, pady=10)
-
-    # Start the GUI
-    gui.mainloop()
 
 # Q2
 
@@ -113,86 +117,89 @@ from tkinter import *
 # import calendar module
 import calendar
 
-
 # Function for showing the calendar of the given year
-def showCal():
-    # Create a GUI window
-    new_gui = Tk()
+def showCal() :
 
-    # Set the background colour of GUI window
-    new_gui.config(background="white")
+	# Create a GUI window
+	new_gui = Tk()
+	
+	# Set the background colour of GUI window
+	new_gui.config(background = "white")
 
-    # set the name of tkinter GUI window
-    new_gui.title("CALENDAR")
+	# set the name of tkinter GUI window
+	new_gui.title("CALENDAR")
 
-    # Set the configuration of GUI window
-    new_gui.geometry("550x600")
+	# Set the configuration of GUI window
+	new_gui.geometry("550x600")
 
-    # get method returns current text as string
-    fetch_year = int(year_field.get())
+	# get method returns current text as string
+	fetch_year = int(year_field.get())
 
-    # calendar method of calendar module return
-    # the calendar of the given year .
-    cal_content = calendar.calendar(fetch_year)
+	# calendar method of calendar module return
+	# the calendar of the given year .
+	cal_content = calendar.calendar(fetch_year)
 
-    # Create a label for showing the content of the calendar
-    cal_year = Label(new_gui, text=cal_content, font="Consolas 10 bold")
+	# Create a label for showing the content of the calendar
+	cal_year = Label(new_gui, text = cal_content, font = "Consolas 10 bold")
 
-    # grid method is used for placing
-    # the widgets at respective positions
-    # in table like structure.
-    cal_year.grid(row=5, column=1, padx=20)
+	# grid method is used for placing
+	# the widgets at respective positions
+	# in table like structure.
+	cal_year.grid(row = 5, column = 1, padx = 20)
+	
+	# start the GUI
+	new_gui.mainloop()
 
-    # start the GUI
-    new_gui.mainloop()
-
-
+	
 # Driver Code
-if _name_ == "_main_":
-    # Create a GUI window
-    gui = Tk()
+if __name__ == "__main__" :
 
-    # Set the background colour of GUI window
-    gui.config(background="white")
+	# Create a GUI window
+	gui = Tk()
+	
+	# Set the background colour of GUI window
+	gui.config(background = "white")
 
-    # set the name of tkinter GUI window
-    gui.title("CALENDAR")
+	# set the name of tkinter GUI window
+	gui.title("CALENDAR")
 
-    # Set the configuration of GUI window
-    gui.geometry("250x140")
+	# Set the configuration of GUI window
+	gui.geometry("250x140")
 
-    # Create a CALENDAR : label with specified font and size
-    cal = Label(gui, text="CALENDAR", bg="dark gray",
-                font=("times", 28, 'bold'))
+	# Create a CALENDAR : label with specified font and size
+	cal = Label(gui, text = "CALENDAR", bg = "dark gray",
+							font = ("times", 28, 'bold'))
 
-    # Create a Enter Year : label
-    year = Label(gui, text="Enter Year", bg="light green")
+	# Create a Enter Year : label
+	year = Label(gui, text = "Enter Year", bg = "light green")
+	
+	# Create a text entry box for filling or typing the information.
+	year_field = Entry(gui)
 
-    # Create a text entry box for filling or typing the information.
-    year_field = Entry(gui)
+	# Create a Show Calendar Button and attached to showCal function
+	Show = Button(gui, text = "Show Calendar", fg = "Black",
+							bg = "Red", command = showCal)
 
-    # Create a Show Calendar Button and attached to showCal function
-    Show = Button(gui, text="Show Calendar", fg="Black",
-                  bg="Red", command=showCal)
+	# Create a Exit Button and attached to exit function
+	Exit = Button(gui, text = "Exit", fg = "Black", bg = "Red", command = exit)
+	
+	# grid method is used for placing
+	# the widgets at respective positions
+	# in table like structure.
+	cal.grid(row = 1, column = 1)
 
-    # Create a Exit Button and attached to exit function
-    Exit = Button(gui, text="Exit", fg="Black", bg="Red", command=exit)
+	year.grid(row = 2, column = 1)
 
-    # grid method is used for placing
-    # the widgets at respective positions
-    # in table like structure.
-    cal.grid(row=1, column=1)
+	year_field.grid(row = 3, column = 1)
 
-    year.grid(row=2, column=1)
+	Show.grid(row = 4, column = 1)
 
-    year_field.grid(row=3, column=1)
+	Exit.grid(row = 6, column = 1)
+	
+	# start the GUI
+	gui.mainloop()
+	
 
-    Show.grid(row=4, column=1)
-
-    Exit.grid(row=6, column=1)
-
-    # start the GUI
-    gui.mainloop()
 
 # Q3
 
